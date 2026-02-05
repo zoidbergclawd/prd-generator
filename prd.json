@@ -34,7 +34,7 @@
       "title": "Test infrastructure",
       "description": "Set up Vitest for unit testing",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "npm test passes with example test",
       "steps": [
         "Install vitest as dev dependency",

@@ -5,3 +5,5 @@ export function main(): void {
 if (require.main === module) {
   main();
 }
+
+export type { PRD, PRDItem, TechStack } from "./types";
