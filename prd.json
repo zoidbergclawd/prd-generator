@@ -116,7 +116,7 @@
       "title": "Init command",
       "description": "Interactive PRD generation wizard",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "prd-gen init creates valid prd.json",
       "steps": [
         "Install inquirer for prompts",
