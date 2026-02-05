@@ -18,14 +18,15 @@
       "title": "Project scaffolding",
       "description": "Initialize TypeScript Node.js project",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "npm run build succeeds",
       "steps": [
         "Create package.json with name prd-generator",
         "Create tsconfig.json for Node.js",
         "Create src/index.ts entry point",
         "Add build script using tsc"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 2,
@@ -40,7 +41,8 @@
         "Create vitest.config.ts",
         "Add test script to package.json",
         "Create __tests__/example.test.ts"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 3,
@@ -54,7 +56,8 @@
         "Create src/types.ts with PRD, PRDItem, TechStack interfaces",
         "Export all types",
         "Write tests validating type structure"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 4,
@@ -70,7 +73,8 @@
         "Check item structure (id, title, verification, steps)",
         "Return validation errors array",
         "Write comprehensive tests"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 5,
@@ -87,7 +91,8 @@
         "Add python-cli.json template",
         "Create template loader function",
         "Write tests for template loading"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 6,
@@ -102,7 +107,8 @@
         "Create src/cli.ts with main command",
         "Add bin entry to package.json",
         "Add --help and --version flags"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 7,
@@ -119,7 +125,8 @@
         "Select template or start blank",
         "Write prd.json to current directory",
         "Write tests with mocked prompts"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 8,
@@ -136,7 +143,8 @@
         "Run validator and report issues",
         "Exit code 1 on errors",
         "Write tests"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 9,
@@ -153,7 +161,8 @@
         "Append to items array",
         "Write updated prd.json",
         "Write tests"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 10,
@@ -168,7 +177,8 @@
         "Add examples for each command",
         "Document template customization",
         "Add link to Ralph CLI"
-      ]
+      ],
+      "notes": ""
     }
   ]
 }
