@@ -152,7 +152,7 @@
       "title": "Add-item command",
       "description": "Add new item to existing PRD",
       "priority": 2,
-      "passes": false,
+      "passes": true,
       "verification": "prd-gen add-item appends to prd.json",
       "steps": [
         "Add add-item subcommand",

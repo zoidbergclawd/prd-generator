@@ -1,82 +1,109 @@
 # PRD Generator
 
-A skill for AI coding agents (Claude Code, Codex CLI) that generates Product Requirements Documents (PRDs) compatible with [Ralph CLI](https://github.com/zoidbergclawd/sisyphus).
+Generate Ralph-compatible `prd.json` files from project descriptions and maintain them from the command line.
 
-## What It Does
-
-When you describe a project you want to build, this skill helps the AI generate a complete, well-structured PRD that Ralph can execute autonomously.
-
-## Usage with Claude Code
-
-```bash
-cd your-project
-claude
-
-# Then ask:
-> Generate a PRD for a REST API that manages a todo list with user authentication
-```
-
-Claude will generate a complete `prd.json` following the Ralph format.
-
-## Usage with Codex CLI
-
-```bash
-cd your-project
-codex "Generate a PRD for a CLI tool that backs up files to S3"
-```
-
-## PRD Format
-
-PRDs follow this structure:
-
-```json
-{
-  "project": "Project Name",
-  "goal": "One-line description",
-  "tech_stack": {
-    "language": "TypeScript",
-    "framework": "Next.js",
-    "testing": "Vitest"
-  },
-  "context": {
-    "target_user": "Who this is for",
-    "constraints": "Key limitations"
-  },
-  "items": [
-    {
-      "id": 1,
-      "category": "setup",
-      "title": "Test infrastructure",
-      "description": "Set up testing framework",
-      "priority": 1,
-      "passes": false,
-      "verification": "npm test passes",
-      "steps": ["Install vitest", "Create config", "Add example test"]
-    }
-  ]
-}
-```
-
-## Key Rules
-
-1. **Test infrastructure must be item 1 or 2** - Ralph requires passing tests
-2. **Every item needs testable verification** - Specific commands or test assertions
-3. **Steps should include writing tests** - Tests are mandatory, not optional
-4. **Priority 1 items run first** - Structure dependencies correctly
+Ralph CLI link: https://github.com/zoidbergclawd/sisyphus
 
 ## Installation
 
-Just clone this repo into your project or reference the CLAUDE.md:
-
 ```bash
-# Option 1: Clone
 git clone https://github.com/zoidbergclawd/prd-generator.git
-
-# Option 2: Copy CLAUDE.md to your project
-curl -O https://raw.githubusercontent.com/zoidbergclawd/prd-generator/main/CLAUDE.md
+cd prd-generator
+npm install
+npm run build
 ```
 
-## Links
+Optional: make `prd-gen` available globally in your shell for this local checkout.
 
-- [Ralph CLI (Sisyphus)](https://github.com/zoidbergclawd/sisyphus) - Executes PRDs autonomously
-- [Ralph Dashboard](https://github.com/zoidbergclawd/ralph-dashboard) - Watch builds in real-time
+```bash
+npm link
+```
+
+## CLI Usage
+
+```bash
+prd-gen --help
+```
+
+Commands:
+
+- `prd-gen init` - interactively create `prd.json` in the current directory
+- `prd-gen validate <file>` - validate a PRD JSON file
+- `prd-gen add-item` - interactively append a new item to an existing `prd.json`
+
+## Examples
+
+### 1. Create a PRD
+
+```bash
+mkdir demo-api && cd demo-api
+prd-gen init
+```
+
+When prompted, choose a starter template or `Blank PRD`, then provide:
+
+- project name
+- goal
+- tech stack (`language, framework, testing`)
+- target user
+
+Result: a validated `prd.json` is written to the current directory.
+
+### 2. Validate a PRD
+
+```bash
+prd-gen validate prd.json
+```
+
+Success output:
+
+```text
+PRD is valid: prd.json
+```
+
+Failure output includes all validation errors and exits with code `1`.
+
+### 3. Add a New Item
+
+```bash
+prd-gen add-item
+```
+
+Prompts collect category, title, description, priority, verification, steps, and optional notes. The command appends a new item with the next numeric `id`.
+
+## Template Customization
+
+Built-in template names shown in `init` are:
+
+- `typescript-cli`
+- `nextjs-app`
+- `python-cli`
+- `blank`
+
+To customize templates:
+
+1. Edit template JSON files in `src/templates/`.
+2. Keep template structure Ralph-compatible (`project`, `goal`, `tech_stack`, `context`, `items`).
+3. Ensure each item has testable `verification` and actionable `steps`.
+4. Rebuild after edits:
+
+```bash
+npm run build
+```
+
+Template files:
+
+- `src/templates/typescript-cli.json`
+- `src/templates/nextjs-app.json`
+- `src/templates/python-cli.json`
+
+## Ralph Compatibility Notes
+
+- Keep test infrastructure in the first one or two items.
+- Use concrete verification criteria that can be executed or asserted.
+- Prioritize dependency order with `priority` (lower number runs earlier).
+
+## Related Links
+
+- Ralph CLI: https://github.com/zoidbergclawd/sisyphus
+- Ralph Dashboard: https://github.com/zoidbergclawd/ralph-dashboard
