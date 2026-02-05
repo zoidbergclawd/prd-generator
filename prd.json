@@ -82,7 +82,7 @@
       "title": "PRD templates",
       "description": "Starter templates for common project types",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "Templates load and pass validation",
       "steps": [
         "Create src/templates/ directory",
