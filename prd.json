@@ -1,0 +1,174 @@
+{
+  "project": "PRD Generator",
+  "goal": "A skill and CLI tool for generating Ralph-compatible PRDs from project descriptions",
+  "tech_stack": {
+    "language": "TypeScript",
+    "framework": "Node.js CLI (commander)",
+    "testing": "Vitest"
+  },
+  "context": {
+    "target_user": "Developers using Ralph CLI for autonomous coding",
+    "constraints": "Must work as both a skill (CLAUDE.md) and standalone CLI",
+    "references": "Ralph CLI PRD format from sisyphus repo"
+  },
+  "items": [
+    {
+      "id": 1,
+      "category": "setup",
+      "title": "Project scaffolding",
+      "description": "Initialize TypeScript Node.js project",
+      "priority": 1,
+      "passes": false,
+      "verification": "npm run build succeeds",
+      "steps": [
+        "Create package.json with name prd-generator",
+        "Create tsconfig.json for Node.js",
+        "Create src/index.ts entry point",
+        "Add build script using tsc"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "setup",
+      "title": "Test infrastructure",
+      "description": "Set up Vitest for unit testing",
+      "priority": 1,
+      "passes": false,
+      "verification": "npm test passes with example test",
+      "steps": [
+        "Install vitest as dev dependency",
+        "Create vitest.config.ts",
+        "Add test script to package.json",
+        "Create __tests__/example.test.ts"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "core",
+      "title": "PRD schema types",
+      "description": "TypeScript types matching Ralph PRD format",
+      "priority": 1,
+      "passes": false,
+      "verification": "Types compile and tests pass",
+      "steps": [
+        "Create src/types.ts with PRD, PRDItem, TechStack interfaces",
+        "Export all types",
+        "Write tests validating type structure"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "core",
+      "title": "PRD validator",
+      "description": "Validate PRD JSON against schema",
+      "priority": 1,
+      "passes": false,
+      "verification": "Validator catches invalid PRDs in tests",
+      "steps": [
+        "Create src/validator.ts",
+        "Check required fields (project, goal, items)",
+        "Check item structure (id, title, verification, steps)",
+        "Return validation errors array",
+        "Write comprehensive tests"
+      ]
+    },
+    {
+      "id": 5,
+      "category": "core",
+      "title": "PRD templates",
+      "description": "Starter templates for common project types",
+      "priority": 1,
+      "passes": false,
+      "verification": "Templates load and pass validation",
+      "steps": [
+        "Create src/templates/ directory",
+        "Add typescript-cli.json template",
+        "Add nextjs-app.json template",
+        "Add python-cli.json template",
+        "Create template loader function",
+        "Write tests for template loading"
+      ]
+    },
+    {
+      "id": 6,
+      "category": "cli",
+      "title": "CLI framework",
+      "description": "Set up commander.js CLI structure",
+      "priority": 1,
+      "passes": false,
+      "verification": "prd-gen --help shows usage",
+      "steps": [
+        "Install commander",
+        "Create src/cli.ts with main command",
+        "Add bin entry to package.json",
+        "Add --help and --version flags"
+      ]
+    },
+    {
+      "id": 7,
+      "category": "cli",
+      "title": "Init command",
+      "description": "Interactive PRD generation wizard",
+      "priority": 1,
+      "passes": false,
+      "verification": "prd-gen init creates valid prd.json",
+      "steps": [
+        "Install inquirer for prompts",
+        "Add init subcommand",
+        "Prompt for: project name, goal, tech stack, target user",
+        "Select template or start blank",
+        "Write prd.json to current directory",
+        "Write tests with mocked prompts"
+      ]
+    },
+    {
+      "id": 8,
+      "category": "cli",
+      "title": "Validate command",
+      "description": "Validate existing PRD files",
+      "priority": 1,
+      "passes": false,
+      "verification": "prd-gen validate prd.json reports errors",
+      "steps": [
+        "Add validate subcommand",
+        "Accept file path argument",
+        "Load and parse JSON",
+        "Run validator and report issues",
+        "Exit code 1 on errors",
+        "Write tests"
+      ]
+    },
+    {
+      "id": 9,
+      "category": "cli",
+      "title": "Add-item command",
+      "description": "Add new item to existing PRD",
+      "priority": 2,
+      "passes": false,
+      "verification": "prd-gen add-item appends to prd.json",
+      "steps": [
+        "Add add-item subcommand",
+        "Prompt for item details",
+        "Auto-increment ID",
+        "Append to items array",
+        "Write updated prd.json",
+        "Write tests"
+      ]
+    },
+    {
+      "id": 10,
+      "category": "docs",
+      "title": "Documentation",
+      "description": "Complete README and usage docs",
+      "priority": 2,
+      "passes": false,
+      "verification": "README has install, usage, and examples",
+      "steps": [
+        "Update README.md with CLI usage",
+        "Add examples for each command",
+        "Document template customization",
+        "Add link to Ralph CLI"
+      ]
+    }
+  ]
+}
