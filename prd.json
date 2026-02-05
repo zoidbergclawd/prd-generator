@@ -134,7 +134,7 @@
       "title": "Validate command",
       "description": "Validate existing PRD files",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "prd-gen validate prd.json reports errors",
       "steps": [
         "Add validate subcommand",

@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buildProgram = buildProgram;
 const commander_1 = require("commander");
+const add_item_command_1 = require("./add-item-command");
 const init_command_1 = require("./init-command");
 const validate_command_1 = require("./validate-command");
 const { version } = require("../package.json");
@@ -36,6 +37,19 @@ function buildProgram() {
                 console.error(`- ${error}`);
             });
             process.exitCode = 1;
+        }
+        catch (error) {
+            console.error(error.message);
+            process.exitCode = 1;
+        }
+    });
+    program
+        .command("add-item")
+        .description("Add a new item to the current directory PRD")
+        .action(async () => {
+        try {
+            const { outputPath, item } = await (0, add_item_command_1.runAddItem)();
+            console.log(`Added item ${item.id} to ${outputPath}`);
         }
         catch (error) {
             console.error(error.message);

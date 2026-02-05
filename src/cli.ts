@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
+import { runAddItem } from "./add-item-command";
 import { runInit } from "./init-command";
 import { runValidate } from "./validate-command";
 
@@ -41,6 +42,19 @@ export function buildProgram(): Command {
           console.error(`- ${error}`);
         });
         process.exitCode = 1;
+      } catch (error) {
+        console.error((error as Error).message);
+        process.exitCode = 1;
+      }
+    });
+
+  program
+    .command("add-item")
+    .description("Add a new item to the current directory PRD")
+    .action(async () => {
+      try {
+        const { outputPath, item } = await runAddItem();
+        console.log(`Added item ${item.id} to ${outputPath}`);
       } catch (error) {
         console.error((error as Error).message);
         process.exitCode = 1;
