@@ -100,7 +100,7 @@
       "title": "CLI framework",
       "description": "Set up commander.js CLI structure",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "prd-gen --help shows usage",
       "steps": [
         "Install commander",

@@ -1,13 +1,27 @@
 #!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.buildProgram = buildProgram;
 const commander_1 = require("commander");
+const init_command_1 = require("./init-command");
 const { version } = require("../package.json");
-const program = new commander_1.Command();
-program
-    .name("prd-gen")
-    .description("Generate Ralph-compatible PRDs from project descriptions")
-    .version(version)
-    .helpOption("-h, --help", "Display help for command");
-program.parse();
+function buildProgram() {
+    const program = new commander_1.Command();
+    program
+        .name("prd-gen")
+        .description("Generate Ralph-compatible PRDs from project descriptions")
+        .version(version)
+        .helpOption("-h, --help", "Display help for command");
+    program
+        .command("init")
+        .description("Create a new PRD interactively in the current directory")
+        .action(async () => {
+        const { outputPath } = await (0, init_command_1.runInit)();
+        console.log(`Created ${outputPath}`);
+    });
+    return program;
+}
+if (require.main === module) {
+    void buildProgram().parseAsync();
+}
 //# sourceMappingURL=cli.js.map
