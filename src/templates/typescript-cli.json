@@ -1,0 +1,44 @@
+{
+  "project": "TypeScript CLI Starter",
+  "goal": "Build a production-ready command-line tool in TypeScript",
+  "tech_stack": {
+    "language": "TypeScript",
+    "framework": "Node.js CLI",
+    "testing": "Vitest"
+  },
+  "context": {
+    "target_user": "Developers who use terminal-based tools",
+    "constraints": "Must run on Node.js LTS and ship as an npm package"
+  },
+  "items": [
+    {
+      "id": 1,
+      "category": "setup",
+      "title": "Set up CLI foundation",
+      "description": "Initialize TypeScript project and executable entrypoint",
+      "priority": 1,
+      "passes": false,
+      "verification": "CLI command runs and prints help output",
+      "steps": [
+        "Create TypeScript project with build and test scripts",
+        "Add bin entry and executable CLI entry file",
+        "Implement base command with --help and --version",
+        "Add initial smoke test for CLI execution"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "core",
+      "title": "Implement primary command flow",
+      "description": "Add core business logic and argument validation",
+      "priority": 1,
+      "passes": false,
+      "verification": "Core command behavior passes unit tests",
+      "steps": [
+        "Define command arguments and options",
+        "Implement validation and error handling",
+        "Add unit tests for expected and error paths"
+      ]
+    }
+  ]
+}

@@ -65,7 +65,7 @@
       "title": "PRD validator",
       "description": "Validate PRD JSON against schema",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "Validator catches invalid PRDs in tests",
       "steps": [
         "Create src/validator.ts",
