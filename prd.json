@@ -50,7 +50,7 @@
       "title": "PRD schema types",
       "description": "TypeScript types matching Ralph PRD format",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "Types compile and tests pass",
       "steps": [
         "Create src/types.ts with PRD, PRDItem, TechStack interfaces",
