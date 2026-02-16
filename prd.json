@@ -170,7 +170,7 @@
       "title": "Documentation",
       "description": "Complete README and usage docs",
       "priority": 2,
-      "passes": false,
+      "passes": true,
       "verification": "README has install, usage, and examples",
       "steps": [
         "Update README.md with CLI usage",
