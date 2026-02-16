@@ -1,0 +1,44 @@
+{
+  "project": "Python CLI Starter",
+  "goal": "Build a maintainable Python CLI with packaging and tests",
+  "tech_stack": {
+    "language": "Python",
+    "framework": "argparse",
+    "testing": "pytest"
+  },
+  "context": {
+    "target_user": "Developers and operators automating terminal workflows",
+    "constraints": "Must support Python 3.10+ and clean dependency management"
+  },
+  "items": [
+    {
+      "id": 1,
+      "category": "setup",
+      "title": "Create Python package and CLI entrypoint",
+      "description": "Initialize package layout and executable module",
+      "priority": 1,
+      "passes": false,
+      "verification": "CLI module executes and help text renders",
+      "steps": [
+        "Set up src-based Python package structure",
+        "Add pyproject metadata and console script entrypoint",
+        "Implement initial command parser and help output",
+        "Add pytest smoke test for command execution"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "core",
+      "title": "Implement command behavior",
+      "description": "Add core workflow logic and robust input validation",
+      "priority": 1,
+      "passes": false,
+      "verification": "Core command paths pass unit tests",
+      "steps": [
+        "Implement input parsing and validation",
+        "Add business logic for primary command actions",
+        "Cover success and error paths with pytest"
+      ]
+    }
+  ]
+}

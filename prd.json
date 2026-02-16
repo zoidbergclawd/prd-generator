@@ -18,14 +18,15 @@
       "title": "Project scaffolding",
       "description": "Initialize TypeScript Node.js project",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "npm run build succeeds",
       "steps": [
         "Create package.json with name prd-generator",
         "Create tsconfig.json for Node.js",
         "Create src/index.ts entry point",
         "Add build script using tsc"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 2,
@@ -33,14 +34,15 @@
       "title": "Test infrastructure",
       "description": "Set up Vitest for unit testing",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "npm test passes with example test",
       "steps": [
         "Install vitest as dev dependency",
         "Create vitest.config.ts",
         "Add test script to package.json",
         "Create __tests__/example.test.ts"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 3,
@@ -48,13 +50,14 @@
       "title": "PRD schema types",
       "description": "TypeScript types matching Ralph PRD format",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "Types compile and tests pass",
       "steps": [
         "Create src/types.ts with PRD, PRDItem, TechStack interfaces",
         "Export all types",
         "Write tests validating type structure"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 4,
@@ -62,7 +65,7 @@
       "title": "PRD validator",
       "description": "Validate PRD JSON against schema",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "Validator catches invalid PRDs in tests",
       "steps": [
         "Create src/validator.ts",
@@ -70,7 +73,8 @@
         "Check item structure (id, title, verification, steps)",
         "Return validation errors array",
         "Write comprehensive tests"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 5,
@@ -78,7 +82,7 @@
       "title": "PRD templates",
       "description": "Starter templates for common project types",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "Templates load and pass validation",
       "steps": [
         "Create src/templates/ directory",
@@ -87,7 +91,8 @@
         "Add python-cli.json template",
         "Create template loader function",
         "Write tests for template loading"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 6,
@@ -95,14 +100,15 @@
       "title": "CLI framework",
       "description": "Set up commander.js CLI structure",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "prd-gen --help shows usage",
       "steps": [
         "Install commander",
         "Create src/cli.ts with main command",
         "Add bin entry to package.json",
         "Add --help and --version flags"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 7,
@@ -110,7 +116,7 @@
       "title": "Init command",
       "description": "Interactive PRD generation wizard",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "prd-gen init creates valid prd.json",
       "steps": [
         "Install inquirer for prompts",
@@ -119,7 +125,8 @@
         "Select template or start blank",
         "Write prd.json to current directory",
         "Write tests with mocked prompts"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 8,
@@ -127,7 +134,7 @@
       "title": "Validate command",
       "description": "Validate existing PRD files",
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "verification": "prd-gen validate prd.json reports errors",
       "steps": [
         "Add validate subcommand",
@@ -136,7 +143,8 @@
         "Run validator and report issues",
         "Exit code 1 on errors",
         "Write tests"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 9,
@@ -144,7 +152,7 @@
       "title": "Add-item command",
       "description": "Add new item to existing PRD",
       "priority": 2,
-      "passes": false,
+      "passes": true,
       "verification": "prd-gen add-item appends to prd.json",
       "steps": [
         "Add add-item subcommand",
@@ -153,7 +161,8 @@
         "Append to items array",
         "Write updated prd.json",
         "Write tests"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": 10,
@@ -161,14 +170,15 @@
       "title": "Documentation",
       "description": "Complete README and usage docs",
       "priority": 2,
-      "passes": false,
+      "passes": true,
       "verification": "README has install, usage, and examples",
       "steps": [
         "Update README.md with CLI usage",
         "Add examples for each command",
         "Document template customization",
         "Add link to Ralph CLI"
-      ]
+      ],
+      "notes": ""
     }
   ]
 }

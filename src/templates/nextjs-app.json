@@ -1,0 +1,43 @@
+{
+  "project": "Next.js App Starter",
+  "goal": "Create a Next.js app with authenticated user workflows",
+  "tech_stack": {
+    "language": "TypeScript",
+    "framework": "Next.js",
+    "testing": "Vitest + Testing Library"
+  },
+  "context": {
+    "target_user": "End users accessing a responsive web app",
+    "constraints": "Must support server rendering and API routes"
+  },
+  "items": [
+    {
+      "id": 1,
+      "category": "setup",
+      "title": "Establish app and test baseline",
+      "description": "Scaffold Next.js app with linting and test setup",
+      "priority": 1,
+      "passes": false,
+      "verification": "App boots and baseline tests pass",
+      "steps": [
+        "Create Next.js TypeScript app scaffold",
+        "Configure testing tools for component and utility tests",
+        "Add CI-ready scripts for build, lint, and test"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "core",
+      "title": "Build key user experience",
+      "description": "Implement primary pages, API handlers, and state flow",
+      "priority": 1,
+      "passes": false,
+      "verification": "Critical user journey works end-to-end in tests",
+      "steps": [
+        "Create route structure and layout",
+        "Implement API endpoints for core data operations",
+        "Add integration tests for the core user journey"
+      ]
+    }
+  ]
+}
